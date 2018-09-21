@@ -1,0 +1,99 @@
+.site-nav
+  position: absolute
+  top: 100%
+  right: 0
+  background: $navColor
+  -webkit-clip-path: circle(0px at top right)
+  clip-path: circle(0px at top right)
+  -webkit-transition: all ease-in-out 500ms
+  transition: clip-path ease-in-out 500ms
+
+.site-nav--open
+  clip-path: circle(100%)
+  -webkit-clip-path: circle(100%)
+
+.site-nav ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+.site-nav li
+  border-bottom: 1px solid $borderColor
+
+.site-nav li:last-child
+  border-bottom: none
+.site-nav a
+  color: $white
+  display: block
+  padding: 2em 4em 2em 6em
+  font-weight: bold
+  text-decoration: none
+  text-align: right
+
+.site-nav a:hover,
+.site-nav a:focus
+  background: $hamburgerColor
+  color: $navColor
+
+.menu-toggle
+  padding: 1.5em
+  position: absolute
+  top: 1em
+  right: 2em
+  cursor: pointer
+
+.hamburger,
+.hamburger::before,
+.hamburger::after
+  content: ''
+  display: block
+  background: $white
+  height: 4px
+  width: 3.2em
+  border-radius: 3px
+  transition: all ease-in-out 500ms
+
+.hamburger::before
+  transform: translateY(-12px)
+.hamburger::after
+  transform: translateY(8px)
+
+
+.open .hamburger
+  transform: rotate(45deg)
+  background: $hamburgerColor
+  height: 6px
+
+.open .hamburger::before
+  opacity: 0
+
+.open .hamburger::after
+  transform: translateY(-4px) rotate(-90deg)
+  background: $hamburgerColor
+  height: 6px
+
+@media (min-width: 700px)
+  .menu-toggle
+    display: none
+
+  .site-nav
+    height: auto
+    position: relative
+    background: transparent
+    float: right
+    margin-right: 2em
+    clip-path: initial
+
+  .site-nav li
+    display: inline-block
+    border: none
+
+  .site-nav a
+    padding: 0
+    font-weight: normal
+    margin: .95em 0 0 1em
+
+  .site-nav a:hover,
+  .site-nav a:focus
+    background: transparent
+    color: $hamburgerColor
